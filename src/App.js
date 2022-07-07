@@ -1,24 +1,52 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './App.css';
-import Parent from './components/Parent'
-import NameList from './components/NameList'
-import StyleSheet from './components/StyleSheet'
-import Inline from './components/Inline'
-import  './appStyles.css'
-import styles from  './appStyles.module.css'
-import Counter from './components/Counter';
-import Form from './components/Form';
-import LifeCycleA from './components/LifeCycleA';
+import ComponentC from './components/ComponentC';
+import { ThemeProvider } from './components/themeContext';
+import { UserProvider } from './components/userContext';
 
 
-function App() {
-  return (
-
+class App extends Component {
+  
+     render(){
+          return (
+               
      <div className='App'>
-                <LifeCycleA />
-
+          <ThemeProvider value="New Theme">
+          <UserProvider value="ThuNDeR">
+               <ComponentC />
+          </UserProvider>
+          </ThemeProvider>
      </div> 
-    );
+          )
+     }
+     /* 
+           <ClickCounterTwo />
+          <HoverCounterTwo />
+          <User render={(isLoggedIn)=>isLoggedIn?"ThuNDeR":"Guest"} />
+     */
+      /*
+  <Count render={(count,incrementCount)=>(
+          <ClickCounterTwo count={count} incrementCount={incrementCount} />
+        )} 
+        />
+          <Count render={(count,incrementCount)=>(
+          <HoverCounterTwo count={count} incrementCount={incrementCount} />
+        )} 
+        /> 
+     */
+    /*
+                         <Count>
+          {(count,incrementCount)=>(
+          <ClickCounterTwo count={count} incrementCount={incrementCount} />
+        )} 
+          </Count>
+           <Count>
+          {(count,incrementCount)=>(
+          <HoverCounterTwo count={count} incrementCount={incrementCount} />
+        )} 
+          </Count>
+    */
+  
 }
 
 export default App;
